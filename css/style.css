@@ -1,0 +1,423 @@
+/* ==========================================================================
+   CSS Design System
+   Colors: White, Grey, Shades of Blue
+   ========================================================================== */
+
+:root {
+    /* Color Palette */
+    --color-white: #ffffff;
+    --color-bg-light: #f8fafc;
+    
+    --color-grey-100: #f1f5f9;
+    --color-grey-200: #e2e8f0;
+    --color-grey-400: #94a3b8;
+    --color-grey-600: #475569;
+    --color-grey-800: #1e293b;
+    --color-grey-900: #0f172a;
+    
+    --color-blue-50: #f0f9ff;
+    --color-blue-100: #e0f2fe;
+    --color-blue-300: #7dd3fc;
+    --color-blue-500: #0ea5e9;
+    --color-blue-600: #0284c7;
+    --color-blue-800: #075985;
+    
+    /* Typography */
+    --font-primary: 'Outfit', sans-serif;
+    
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --shadow-blue: 0 10px 25px -5px rgba(14, 165, 233, 0.3);
+    
+    /* Transitions */
+    --transition-fast: 0.2s ease;
+    --transition-base: 0.3s ease;
+    
+    /* Layout */
+    --border-radius: 12px;
+    --container-max: 1200px;
+}
+
+/* ==========================================================================
+   Reset & Base Styles
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-primary);
+    background-color: var(--color-bg-light);
+    color: var(--color-grey-800);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: var(--color-blue-600);
+    transition: color var(--transition-fast);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--color-grey-900);
+    line-height: 1.2;
+    font-weight: 700;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.container {
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* Utilities */
+.text-blue {
+    color: var(--color-blue-600);
+}
+
+/* ==========================================================================
+   Buttons
+   ========================================================================== */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 28px;
+    font-weight: 600;
+    font-size: 1rem;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: all var(--transition-base);
+    border: 2px solid transparent;
+}
+
+.btn-primary {
+    background-color: var(--color-blue-600);
+    color: var(--color-white);
+    box-shadow: var(--shadow-sm);
+}
+
+.btn-primary:hover {
+    background-color: var(--color-blue-800);
+    color: var(--color-white);
+    box-shadow: var(--shadow-blue);
+    transform: translateY(-2px);
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: var(--color-blue-600);
+    border-color: var(--color-blue-600);
+}
+
+.btn-outline:hover {
+    background-color: var(--color-blue-50);
+    color: var(--color-blue-800);
+    border-color: var(--color-blue-800);
+}
+
+.btn-block {
+    width: 100%;
+}
+
+/* ==========================================================================
+   Navbar
+   ========================================================================== */
+.navbar {
+    background-color: var(--color-white);
+    border-bottom: 1px solid var(--color-grey-200);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+}
+
+.logo {
+    height: 40px;
+    object-fit: contain;
+}
+
+/* ==========================================================================
+   Hero Section
+   ========================================================================== */
+.hero {
+    padding: 100px 0 120px;
+    background: linear-gradient(135deg, var(--color-white) 0%, var(--color-grey-100) 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.hero-content {
+    flex: 1;
+    max-width: 600px;
+    z-index: 2;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    margin-bottom: 24px;
+    letter-spacing: -1px;
+}
+
+.hero-content p {
+    font-size: 1.125rem;
+    color: var(--color-grey-600);
+    margin-bottom: 32px;
+}
+
+.hero-visual {
+    flex: 1;
+    position: relative;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.glass-orb {
+    position: absolute;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--color-blue-300), var(--color-blue-600));
+    opacity: 0.15;
+    filter: blur(40px);
+}
+
+.orb-1 { width: 300px; height: 300px; top: 10%; left: 10%; animation: float 6s ease-in-out infinite; }
+.orb-2 { width: 200px; height: 200px; bottom: 10%; right: 20%; animation: float 8s ease-in-out infinite reverse; background: linear-gradient(135deg, var(--color-grey-400), var(--color-blue-500)); }
+.orb-3 { width: 150px; height: 150px; top: 40%; right: 10%; animation: float 5s ease-in-out infinite 1s; }
+
+@keyframes float {
+    0% { transform: translateY(0px) scale(1); }
+    50% { transform: translateY(-20px) scale(1.05); }
+    100% { transform: translateY(0px) scale(1); }
+}
+
+/* ==========================================================================
+   Courses Section
+   ========================================================================== */
+.courses-section {
+    padding: 100px 0;
+    background-color: var(--color-bg-light);
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 60px;
+    max-width: 600px;
+    margin-inline: auto;
+}
+
+.section-header h2 {
+    font-size: 2.5rem;
+    margin-bottom: 16px;
+    position: relative;
+    display: inline-block;
+}
+
+.section-header h2::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background-color: var(--color-blue-500);
+    border-radius: 2px;
+}
+
+.section-header p {
+    color: var(--color-grey-600);
+    font-size: 1.125rem;
+}
+
+.course-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 30px;
+}
+
+.course-card {
+    background-color: var(--color-white);
+    border-radius: var(--border-radius);
+    padding: 30px;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--color-grey-200);
+    transition: all var(--transition-base);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.course-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-blue);
+    border-color: var(--color-blue-100);
+}
+
+.course-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.course-duration {
+    background-color: var(--color-blue-50);
+    color: var(--color-blue-800);
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.875rem;
+    font-weight: 600;
+}
+
+.course-icon {
+    width: 40px;
+    height: 40px;
+    background-color: var(--color-blue-100);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-blue-600);
+}
+
+.course-icon svg {
+    width: 24px;
+    height: 24px;
+}
+
+.course-card-body {
+    flex: 1;
+    margin-bottom: 24px;
+}
+
+.course-card-body h3 {
+    font-size: 1.25rem;
+    margin-bottom: 12px;
+    color: var(--color-grey-900);
+}
+
+.course-card-body p {
+    color: var(--color-grey-600);
+    font-size: 0.95rem;
+}
+
+.course-card-footer {
+    margin-top: auto;
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+.footer {
+    background-color: var(--color-white);
+    border-top: 1px solid var(--color-grey-200);
+    padding: 60px 0 24px;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.footer-brand {
+    max-width: 400px;
+}
+
+.footer-logo {
+    height: 40px;
+    margin-bottom: 20px;
+}
+
+.footer-brand p {
+    color: var(--color-grey-600);
+}
+
+.footer-links h4 {
+    margin-bottom: 16px;
+}
+
+.footer-links p {
+    color: var(--color-grey-600);
+    margin-bottom: 16px;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 24px;
+    border-top: 1px solid var(--color-grey-200);
+    color: var(--color-grey-400);
+    font-size: 0.875rem;
+}
+
+/* ==========================================================================
+   Animations
+   ========================================================================== */
+.fade-in-up {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.delay-1 { transition-delay: 0.1s; }
+.delay-2 { transition-delay: 0.2s; }
+.delay-3 { transition-delay: 0.3s; }
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+@media (max-width: 768px) {
+    .hero-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+    
+    .hero-visual {
+        height: 300px;
+        width: 100%;
+    }
+    
+    .footer-container {
+        flex-direction: column;
+    }
+}
